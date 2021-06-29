@@ -1,15 +1,26 @@
 import './App.css';
-import React, { useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useState, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 import { OrbitControls, Stars } from '@react-three/drei';
-// import { useSpring, animated } from 'react-spring/three';
+import introPic from './Images/ayyitsme.PNG';
 
 function App() {
   const [active, setActive] = useState('Intro');
+
   function IntroBox() {
     const [hovered, setHovered] = useState(false);
+    const texture = THREE.ImageUtils.loadTexture(introPic);
+    const mesh = useRef();
+
+    useFrame(() => {
+      mesh.current.rotation.x += 0.01;
+      mesh.current.rotation.y += 0.01;
+    });
+
     return (
       <mesh
+        ref={mesh}
         position={[0, 0, 0]}
         onClick={() => (active === 'Intro' ? setActive('') : setActive('Intro'))}
         onPointerOver={() => setHovered(true)}
@@ -17,7 +28,7 @@ function App() {
         scale={hovered ? [1.05, 1.05, 1.05] : [1, 1, 1]}
       >
         <boxBufferGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={hovered ? 'yellow' : 'hotpink'} />
+        <meshLambertMaterial map={texture} attach="material" color={hovered ? 'yellow' : 'white'} />
       </mesh>
     );
   }
