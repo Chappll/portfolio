@@ -1,22 +1,17 @@
 import './App.css';
 import React, { useState, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import { OrbitControls, Stars } from '@react-three/drei';
 import introPic from './Images/ayyitsme.PNG';
 
 function App() {
-  const [active, setActive] = useState('Intro');
+  const [active, setActive] = useState('');
 
   function IntroBox() {
     const [hovered, setHovered] = useState(false);
     const texture = THREE.ImageUtils.loadTexture(introPic);
     const mesh = useRef();
-
-    useFrame(() => {
-      mesh.current.rotation.x += 0.01;
-      mesh.current.rotation.y += 0.01;
-    });
 
     return (
       <mesh
@@ -46,7 +41,7 @@ function App() {
       </div>
       <div className="App-header">
         <header>
-          Alex Chappell - Three JS Portfolio
+          Alex Chappell:Three JS Portfolio (Click and drag to rotate, Scroll to Zoom)
         </header>
         { active === 'Intro' && (
         <p>

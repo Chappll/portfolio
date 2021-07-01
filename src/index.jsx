@@ -4,6 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// function Sphere() {
+//   return (
+//     <mesh
+//       visible
+//       position={[2, -1, -1]}
+//       castShadow
+//       scale={[0.5, 0.5, 0.5]}
+//     >
+//       <sphereGeometry attach="geometry" args={[1, 16, 16]} />
+//       <meshStandardMaterial
+//         attach="material"
+//         color="white"
+//         transparent
+//         roughness={0.1}
+//         metalness={0.1}
+//       />
+//     </mesh>
+//   );
+// }
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
