@@ -143,11 +143,14 @@ function App() {
         </p>
         )}
         { active === 'GitHub' && (
-        <p>
-          Github:
-          <br />
-          Most the projects I currently do are made public. All the code for these can be found at https://github.com/Chappll
-        </p>
+        <div>
+          <p>
+            Github:
+            <br />
+            Most the projects I currently do are made public. All the code for these can be found at
+          </p>
+          <Button variant="contained" color="secondary" onClick={() => window.open('https://github.com/Chappll', '_blank')}> Visit Github </Button>
+        </div>
         )}
         { active === 'Education' && (
         <p>
@@ -175,12 +178,20 @@ function App() {
             GunfireDPS - a data visualisation app for one of my favourite games.
             Check it out at
           </p>
-          <Button variant="outlined" color="primary" onClick={() => window.open('https://www.gunfireDps.com', '_blank')}> Visit Gunfire Dps</Button>
+          <Button variant="contained" color="secondary" onClick={() => window.open('https://www.gunfireDps.com', '_blank')}> Visit Gunfire Dps</Button>
         </div>
         )}
         { active === 'Com' && (
         <p>
-          Nothing yet for this section, will be changed later :)
+          What I am doing:
+          <br />
+          After taking some during early 2021 re-familiarising myself with java
+          I am now back to learning more javascript, react and front end development.
+          My current project will be using some more three JS.
+          I will soon be continuing with work on the gunfire dps app and
+          am also planning to do a project to familiarise myself with testing and typescript.
+          I aim to post updates of projects on my GitHub biweekly so any progress can be seen there.
+
         </p>
         )}
       </div>
